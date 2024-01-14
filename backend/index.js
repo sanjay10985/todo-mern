@@ -5,7 +5,11 @@ import cors from "cors"
 
 const app = express()
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin: ["https://todo-mern-mauve.vercel.app"],
+    methods:["POST","GET","DELETE","PUT"],
+    credentials: true,
+}));
 
 mongoose.connect('mongodb+srv://sanjaytomar717:X7r6Y4qNA3htReM6@cluster0.mzdmlaj.mongodb.net/',{dbName : "todos"});
 
@@ -50,4 +54,4 @@ app.delete('/',async (req,res) =>{
 
 app.listen(3000,()=> console.log("server is running"))
 
-// X7r6Y4qNA3htReM6
+

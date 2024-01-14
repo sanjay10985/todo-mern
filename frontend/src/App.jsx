@@ -6,7 +6,7 @@ const App = () => {
   const[todos,setTodos]= useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/",{
+    fetch("https://todo-mern-mauve.vercel.app/",{
       method: "GET"
     }).then((response) => {
       response.json().then((data) => {
@@ -17,7 +17,7 @@ const App = () => {
   },[todos]);
 
   useEffect(() => { 
-    fetch("http://localhost:3000/",{
+    fetch("https://todo-mern-mauve.vercel.app/",{
       method: "DELETE"
     })
     .then((response) => console.log(response))
@@ -25,7 +25,7 @@ const App = () => {
 
   const postTodo = () =>{
     if(input === "") return;
-    fetch("http://localhost:3000/",{
+    fetch("https://todo-mern-mauve.vercel.app/",{
       method: "POST",
       body: JSON.stringify({
         todo : input.charAt(0).toUpperCase() + input.slice(1),
@@ -51,7 +51,7 @@ const App = () => {
   }
 
   const toggleCompleted = (id,completed) => {
-    fetch("http://localhost:3000/" + id,{
+    fetch("https://todo-mern-mauve.vercel.app/" + id,{
       method: "PUT",
       body: JSON.stringify({
         completed: !completed
