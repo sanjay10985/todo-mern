@@ -5,11 +5,7 @@ import cors from "cors"
 
 const app = express()
 app.use(express.json());
-app.use(cors({
-    origin: ["https://todo-mern-frontend-two.vercel.app"],
-    methods:["POST","GET","DELETE","PUT"],
-    credentials: true,
-}));
+app.use(cors());
 
 mongoose.connect('mongodb+srv://sanjaytomar717:X7r6Y4qNA3htReM6@cluster0.mzdmlaj.mongodb.net/',{dbName : "todos"});
 
