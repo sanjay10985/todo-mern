@@ -49,7 +49,6 @@ const App = () => {
       postTodo();
     }
   }
-
   const toggleCompleted = (id,completed) => {
     fetch("https://todo-mern-mauve.vercel.app/" + id,{
       method: "PUT",
