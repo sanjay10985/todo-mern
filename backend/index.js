@@ -6,7 +6,7 @@ import cors from "cors"
 const app = express()
 app.use(express.json());
 app.use(cors({
-    origin: ["https://todo-mern-frontend-two.vercel.app/"],
+    origin: ["https://todo-mern-frontend-two.vercel.app"],
     methods:["POST","GET","DELETE","PUT"],
     credentials: true,
 }));
