@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import cors from "cors"
 
 const app = express()
+const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(cors({
     origin: 'https://todo-mern-frontend-two.vercel.app',
@@ -52,6 +53,7 @@ app.delete('/',async (req,res) =>{
     }
 })
 
-app.listen(3000,()=> console.log("server is running"))
+// app.listen(3000,()=> console.log("server is running"))
+module.exports = app;
 
 
