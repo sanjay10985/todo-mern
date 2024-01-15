@@ -11,6 +11,10 @@ app.use(cors({
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true, // enable set cookie with CORS
   }));
+  const corsOptions = {
+    origin: 'https://todo-mern-frontend-two.vercel.app',
+    optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+  };app.use(cors(corsOptions));
 
 mongoose.connect('mongodb+srv://sanjaytomar717:X7r6Y4qNA3htReM6@cluster0.mzdmlaj.mongodb.net/',{dbName : "todos"});
 
