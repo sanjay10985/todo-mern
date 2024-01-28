@@ -40,7 +40,7 @@ body{
   display: flex;
   align-items: center;
   background-color: white;
-  box-shadow: 1em 1em 5em #d3c8c88c, -1em -1em 5em #d3c8c88c;
+  box-shadow: 3em 3em 1em #d3c8c88c, -1em -1em 10em #d3c8c88c;
   border-radius: 1em;
   flex-direction: column;
   padding: 4em;

@@ -6,8 +6,10 @@ const App = () => {
   const[input,setInput] = useState("");
   const[todos,setTodos]= useState([]);
 
+  const BASE_URL = 'https://todoserver-tvia.onrender.com/'
+
   useEffect(() => {
-    fetch("http://localhost:3000/",{
+    fetch(BASE_URL,{
       method: "GET"
     }).then((response) => {
       response.json().then((data) => {
@@ -15,11 +17,11 @@ const App = () => {
       })
     });
     
-  },[todos]);
+  },[]);
 
   useEffect(() => { 
     // const deleteTodo = () => {
-    fetch("http://localhost:3000/",{
+    fetch(BASE_URL,{
       method: "DELETE"
     })
     .then((response) => console.log(response))
@@ -28,7 +30,7 @@ const App = () => {
 
   const postTodo = () =>{
     if(input === "") return;
-    fetch("http://localhost:3000/",{
+    fetch(BASE_URL,{
       method: "POST",
       body: JSON.stringify({
         todo : input.charAt(0).toUpperCase() + input.slice(1),
@@ -53,7 +55,7 @@ const App = () => {
     }
   }
   const toggleCompleted = (id,completed) => {
-    fetch("http://localhost:3000/" + id,{
+    fetch(BASE_URL + id,{
       method: "PUT",
       body: JSON.stringify({
         completed: !completed
@@ -64,7 +66,8 @@ const App = () => {
     })
     .then((response) => response.json())
     .then((data) => {
-      setTodos(todos.map(todo => (todo._id === id ? {...todo,completed:!completed}:todo )))
+      setTodos((prevTodos) => 
+        prevTodos.map((todo) => (todo._id === id ? {...todo,completed:data.completed}:todo )))
     })
     .catch(err => console.log(err))
   }
@@ -85,7 +88,7 @@ const App = () => {
               <input type="checkbox" className="check" checked={todo.completed ? 'check' : ""} onChange={() => toggleCompleted(todo._id,todo.completed)} />
               <span className="todo" style={{textDecoration: todo.completed ? 'line-through': ''}} onClick={() => toggleCompleted(todo._id,todo.completed)}>{todo.todo}</span>
               </div>
-              </CSSTransition>
+              // </CSSTransition>
           ))}
           </TransitionGroup>
         </div>
