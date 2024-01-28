@@ -67,7 +67,7 @@ const App = () => {
     .then((response) => response.json())
     .then((data) => {
       setTodos((prevTodos) => 
-        prevTodos.map((todo) => (todo._id === id ? {...todo,completed:data.completed}:todo )))
+        prevTodos.map((todo) => (todo._id === id ? {...todo,completed:!completed}:todo )))
     })
     .catch(err => console.log(err))
   }
