@@ -1,7 +1,11 @@
 import express from "express";
 import Todos from "./schema/todoSchema.js";
 import mongoose from "mongoose";
-import cors from "cors"
+import cors from "cors";
+import dotenv from "dotenv"
+
+dotenv.config();
+const MONGOOSE = process.env.MONGOOSE;
 
 const app = express()
 const PORT = process.env.PORT || 3000;
@@ -9,7 +13,7 @@ app.use(express.json());
 // app.options('*', cors());
 app.use(cors());
 
-mongoose.connect('mongodb+srv://sanjaytomar717:X7r6Y4qNA3htReM6@cluster0.mzdmlaj.mongodb.net/',{dbName : "todos"});
+mongoose.connect(`${MONGOOSE}`,{dbName : "todos"});
 // X7r6Y4qNA3htReM6
 // Create todos
 app.get('/',async(req,res) =>{
