@@ -88,7 +88,7 @@ const App = () => {
               <input type="checkbox" className="check" checked={todo.completed ? 'check' : ""} onChange={() => toggleCompleted(todo._id,todo.completed)} />
               <span className="todo" style={{textDecoration: todo.completed ? 'line-through': ''}} onClick={() => toggleCompleted(todo._id,todo.completed)}>{todo.todo}</span>
               </div>
-              // </CSSTransition>
+              </CSSTransition>
           ))}
           </TransitionGroup>
         </div>
