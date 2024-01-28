@@ -6,19 +6,11 @@ import cors from "cors"
 const app = express()
 const PORT = process.env.PORT || 3000;
 app.use(express.json());
-app.options('*', cors());
-app.use(cors({
-    origin: '*',
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true, // enable set cookie with CORS
-  }));
-  const corsOptions = {
-    origin: 'https://todo-mern-frontend-two.vercel.app',
-    optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-  };app.use(cors(corsOptions));
+// app.options('*', cors());
+app.use(cors());
 
 mongoose.connect('mongodb+srv://sanjaytomar717:X7r6Y4qNA3htReM6@cluster0.mzdmlaj.mongodb.net/',{dbName : "todos"});
-
+// X7r6Y4qNA3htReM6
 // Create todos
 app.get('/',async(req,res) =>{
     const todos = await Todos.find({});
@@ -58,7 +50,7 @@ app.delete('/',async (req,res) =>{
     }
 })
 
-// app.listen(3000,()=> console.log("server is running"))
-module.exports = app;
+app.listen(PORT,()=> console.log("server is running"))
+// module.exports = app;
 
 
