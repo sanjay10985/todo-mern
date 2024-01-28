@@ -77,7 +77,7 @@ const App = () => {
     <div className='app'>
       <div className='todo-box'>
         <div className="todo_input">
-          <input type="text" className='input' placeholder='Add Task' value={input} onChange={e => setInput(e.target.value)} onKeyPress={enterKey}/>
+          <input type="text" className='input' placeholder='Add a task' value={input} onChange={e => setInput(e.target.value)} onKeyPress={enterKey}/>
           <button type='submit' className='submit_button' onClick={postTodo}>+</button>
         </div>
         <div className="todo_output">
