@@ -14,7 +14,6 @@ app.use(express.json());
 app.use(cors());
 
 mongoose.connect(`${MONGOOSE}`,{dbName : "todos"});
-// X7r6Y4qNA3htReM6
 // Create todos
 app.get('/',async(req,res) =>{
     const todos = await Todos.find({});
